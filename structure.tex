@@ -126,20 +126,19 @@ SmallCapsFont=*-SC.ttf
 %	CUSTOM COMMANDS
 %----------------------------------------------------------------------------------------
 
-% Command for entering a new work position
-% \newcommand{\workposition}[5]{
-% 	{\raggedleft\textsc{#1\expandafter\ifstrequal\expandafter{#2}{}{}{\hspace{6pt}\footnotesize{(#2)}}}\par} % Duration and conditional full time/part time text
-% 	\expandafter\ifstrequal\expandafter{#3}{}{}{{\raggedright\large #3}\\} % Employer
-% 	\expandafter\ifstrequal\expandafter{#4}{}{}{{\raggedright\large\textit{\textbf{#4}}}\\[4pt]} % Job title
-% 	\expandafter\ifstrequal\expandafter{#5}{}{}{#5\\} % Description
-% }
-
 \newcommand{\workposition}[3]{
-% 	{\raggedleft\textsc{#1
-% 	\expandafter\ifstrequal\expandafter{#2}{}{}{\hspace{6pt}\footnotesize{(#2)}}}\\} % Duration and conditional full time/part time text
 	\expandafter\ifstrequal\expandafter{#1}{}{}{{\raggedright\large #1}\\} % job title
 	\expandafter\ifstrequal\expandafter{#2}{}{}{{\raggedright\large #2}\\[4pt]} % description
 	\expandafter\ifstrequal\expandafter{#3}{}{}{#3\\} % Description
+}
+
+
+\newcommand{\workpositionmulti}[5]{
+	\expandafter\ifstrequal\expandafter{#1}{}{}{{\raggedright\large #1}\\} % company name
+	\expandafter\ifstrequal\expandafter{#2}{}{}{{\raggedright\large #2}\\[4pt]} % title year
+	\expandafter\ifstrequal\expandafter{#3}{}{}{#3\\{\\}} % Description
+	\expandafter\ifstrequal\expandafter{#4}{}{}{{\raggedright\large #4}\\[4pt]} % title year
+	\expandafter\ifstrequal\expandafter{#5}{}{}{#5} % Description
 }
 
 
@@ -173,3 +172,12 @@ SmallCapsFont=*-SC.ttf
 	\href{http://dx.doi.org/#2}{\expandafter\ifstrequal\expandafter{#3}{firstauthor}{\textbf{doi:#2}}{doi:#2}}% DOI string and if "firstauthor" is entered for the 3rd argument, this makes the DOI string bold indicating a first author publication
 	\expandafter\ifstrequal\expandafter{#4}{}{\\}{\\[3pt]} % Conditional insertion of whitespace if the 4th parameter has any content in it
 }
+
+
+% Command for entering a new work position
+% \newcommand{\workposition}[5]{
+% 	{\raggedleft\textsc{#1\expandafter\ifstrequal\expandafter{#2}{}{}{\hspace{6pt}\footnotesize{(#2)}}}\par} % Duration and conditional full time/part time text
+% 	\expandafter\ifstrequal\expandafter{#3}{}{}{{\raggedright\large #3}\\} % Employer
+% 	\expandafter\ifstrequal\expandafter{#4}{}{}{{\raggedright\large\textit{\textbf{#4}}}\\[4pt]} % Job title
+% 	\expandafter\ifstrequal\expandafter{#5}{}{}{#5\\} % Description
+% }
